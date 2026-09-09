@@ -255,8 +255,8 @@ The invoice contains information about the purchased products and their quantiti
 
 ### Prerequisites
 
-* Node.js
-* MongoDB (local or cloud instance)
+- Node.js
+- MongoDB (local or cloud instance)
 
 ### Installation Steps
 
@@ -264,3 +264,61 @@ The invoice contains information about the purchased products and their quantiti
 
 ```bash
 git clone https://github.com/amirhoseinpourmand/my-shop.git
+```
+
+2. Navigate to the project directory:
+
+```bash
+cd my-shop
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Configure environment variables:
+
+Create a `.env` file in the project root and configure your MongoDB connection:
+
+```env
+HOST=localhost
+PORT=3001
+DATABASE_NAME=Shop
+DATABASE_HOST=127.0.0.1
+```
+
+Add your ZarinPal merchant ID if you want to use the payment functionality.
+
+> Make sure not to upload your `.env` file or any private credentials to GitHub.
+
+5. Run the application:
+
+```bash
+node app.js
+```
+
+For development with Nodemon:
+
+```bash
+npx nodemon app.js
+```
+
+6. Open your browser and visit:
+
+```text
+http://localhost:3001
+```
+
+---
+
+## License
+
+This project is licensed under the **ISC License**.
+
+---
+
+## Author
+
+Amirhosein Pourmand
