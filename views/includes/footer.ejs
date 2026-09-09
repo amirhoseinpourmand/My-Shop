@@ -1,0 +1,45 @@
+<footer class="site-footer">
+    <div class="container footer-grid">
+        <div class="footer-col footer-about">
+            <div class="footer-brand">
+                <span class="logo-mark">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 8h12l-1 12H7L6 8Z"></path>
+                        <path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
+                    </svg>
+                </span>
+                فروشگاه من
+            </div>
+            <p>مقصدی مطمئن برای خرید آنلاین با محصولاتی باکیفیت، ارسال سریع و پشتیبانی همیشگی در کنار شما.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>دسترسی سریع</h4>
+            <ul>
+                <li><a href="/">خانه</a></li>
+                <li><a href="/products">محصولات</a></li>
+                <% if(typeof isAuthenticated !== 'undefined' && isAuthenticated){ %>
+                  <li><a href="/cart">سبد خرید</a></li>
+                  <li><a href="/orders">سفارشات</a></li>
+                <% } else { %>
+                  <li><a href="/login">ورود</a></li>
+                  <li><a href="/sign-up">ثبت‌نام</a></li>
+                <% } %>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h4>ارتباط با ما</h4>
+            <ul>
+                <li><span>زنجان، ایران</span></li>
+                <li><span dir="ltr">support@myshop.com</span></li>
+                <li><span dir="ltr">۰۲۱-۰۰۰۰۰۰۰</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container footer-bottom">
+        <span>© 2026 فروشگاه من. تمامی حقوق محفوظ است.</span>
+        <span>ساخته‌شده با <span class="heart">Express.js</span></span>
+    </div>
+</footer>

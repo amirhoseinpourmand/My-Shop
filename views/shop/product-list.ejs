@@ -1,0 +1,62 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/heading.ejs') %>
+
+  <main>
+    <div class="container">
+
+      <h1 class="page-title">محصولات ما</h1>
+
+      <main>
+        <% if(prods.length > 0){ %>
+          <div class="container product-cart">
+        <% for(let product of prods){ %>
+          <article class="card product-item">
+              <header class="card__header">
+                  <h1 class="product__title"><%= product.title %></h1>
+              </header>
+              <div class="card__image img">
+                  <img src="/<%= product.image %>" alt="Product Title" />
+              </div>
+              <br />
+              <div class="card__content">
+                  <p class="product__description"><%= product.description %></p>
+                  <hr />
+                  <h2 class="product__price"><%= product.price %> تومان</h2>
+              </div>
+              <div class="card__actions centered">
+                  <a href="/products/<%= product._id %>" class="btn btn-light">جزییات</a>
+
+                <% if(isAuthenticated){ %>
+                  <form action="/cart" method="post">
+                    <input type="hidden" name="productID" value="<%= product._id %>" />
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                    <button class="btn btn-info">افزودن به سبد</button>
+                  </form>
+                <% } %>
+
+              </div>
+          </article>
+        <% } %>
+          </div>
+          <%- include('../includes/pagination.ejs', {
+              currentPage: currentPage,
+              hasNextPage: hasNextPage,
+              hasPreviousPage: hasPreviousPage,
+              nextPage: nextPage,
+              lastPage: lastPage,
+            }) %>
+        <% } else { %>
+          <div class="empty-state">
+              <span class="empty-state__icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5Z"></path><path d="M3 8v8l9 5 9-5V8"></path><path d="M12 13v8"></path></svg>
+              </span>
+              <h1 class="empty-state__title">محصولی یافت نشد</h1>
+          </div>
+        <% } %>
+      </main>
+
+    </div>
+  </main>
+
+<%- include('../includes/footer.ejs') %>
+<%- include('../includes/end.ejs') %>

@@ -1,0 +1,56 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/heading.ejs') %>
+
+  <main>
+    <div class="container">
+      <div class="auth-wrapper">
+        <div class="auth-card">
+
+          <input type="radio" name="auth-toggle" id="register-radio" class="auth-radio" checked>
+
+          <div class="auth-tabs">
+            <label for="register-radio" class="auth-tab">ثبت‌نام</label>
+          </div>
+
+          <% if(errorMessage){ %>
+            <div class="alert alert-danger"><%= errorMessage %></div>
+          <% } %>
+
+          <form class="auth-form register-form" action="/sign-up" method="post" novalidate>
+
+            <div class="form-group">
+              <label for="register-email">ایمیل</label>
+              <input type="email" name="email" value="<%= oldInput.email %>" id="register-email" class="<%= validationErrors.find(e => e.path === 'email') ? 'border border-danger' : '' %>" placeholder="example@mail.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="register-password">رمز عبور</label>
+              <div class="password-field">
+                <input type="password" name="password" value="<%= oldInput.password %>" id="register-password" class="<%= validationErrors.find(e => e.path === 'password') ? 'border border-danger' : '' %>" placeholder="یک رمز عبور بسازید" required>
+                <button type="button" class="password-toggle-btn" data-target="register-password" aria-label="نمایش رمز عبور">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="register-confirm-password">تکرار رمز عبور</label>
+              <div class="password-field">
+                <input type="password" name="confirmPassword" value="<%= oldInput.confirmPassword %>" id="register-confirm-password" class="<%= validationErrors.find(e => e.path === 'confirmPassword') ? 'border border-danger' : '' %>" placeholder="تکرار رمز عبور را وارد کنید" required>
+                <button type="button" class="password-toggle-btn" data-target="register-confirm-password" aria-label="نمایش رمز عبور">
+                  <i class="bi bi-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+            <button type="submit" class="auth-submit-btn">ثبت‌نام</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+<%- include('../includes/footer.ejs') %>
+<%- include('../includes/end.ejs') %>

@@ -1,0 +1,43 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/heading.ejs') %>
+<main>
+    <div class="container">
+        <h2 class="page-title">سفارشات</h2>
+        <% if(refID){ %>
+            <div class="alert alert-success order-success">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22" aria-hidden="true"><path d="M20 6L9 17l-5-5"></path></svg>
+                <div class="order-success__text">
+                    <strong>پرداخت شما با موفقیت انجام شد</strong>
+                    <span class="order-success__ref">کد پیگیری: <%= refID %></span>
+                </div>
+            </div>
+        <% } %>
+        <% if (orders.length <= 0) { %>
+        <div class="empty-state">
+            <span class="empty-state__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l3 3v17l-3-2-3 2-3-2-3 2V2Z"></path><path d="M9 8h6M9 12h6M9 16h3"></path></svg>
+            </span>
+            <h1 class="empty-state__title">سفارشی ثبت نشده</h1>
+            <p class="empty-state__subtitle">پس از تکمیل خرید، سفارش‌های شما اینجا نمایش داده می‌شود.</p>
+            <a href="/products" class="btn btn-primary">مشاهده محصولات</a>
+        </div>
+        <% } else { %>
+            <ul class="orders">
+                <li class="orders_item card">
+                    <ul class="orders_products">
+                        <h1>شماره سفارش: <%= orders[0]._id %><a href="/invoices/<%= orders[0]._id %>">گزارش</a></h1>
+                        <% orders.forEach(order => { %>
+                            <% order.products.forEach(p => { %>
+                            <li class="orders_products_items">
+                                <%= p.product.title %><br /> تعداد (<%= p.quantity %>) 
+                            </li>
+                            <% }); %>
+                        <% }); %>
+                    </ul>
+                </li>
+            </ul>
+        <% } %>
+    </div>
+</main>
+<%- include('../includes/footer.ejs') %>
+<%- include('../includes/end.ejs') %>

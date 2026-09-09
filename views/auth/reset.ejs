@@ -1,0 +1,39 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/heading.ejs') %>
+
+  <main>
+    <div class="container">
+      <div class="auth-wrapper">
+        <div class="auth-card">
+
+          <input type="radio" name="auth-toggle" id="login-radio" class="auth-radio" checked>
+
+          <div class="auth-tabs">
+            <label for="login-radio" class="auth-tab">بازیابی رمز عبور</label>
+          </div>
+          
+          <% if(errorMessage[0]){ %>
+            <div class="alert alert-danger"><%= errorMessage[0] %></div>
+          <% } %>
+
+          <% if(successMessage[0]){ %>
+            <div class="alert alert-success"><%= successMessage[0] %></div>
+          <% } %>
+
+          <form class="auth-form login-form" action="/reset" method="post" novalidate>
+            <div class="form-group">
+              <label for="login-email">ایمیل</label>
+              <input type="email" name="email" id="login-email" placeholder="ایمیل خود را وارد کنید" required>
+            </div>
+
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+            <button type="submit" class="auth-submit-btn">ارسال رمز عبور</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+<%- include('../includes/footer.ejs') %>
+<%- include('../includes/end.ejs') %>

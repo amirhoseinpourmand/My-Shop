@@ -1,0 +1,22 @@
+<%- include('./includes/head.ejs') %>
+<%- include('./includes/heading.ejs') %>
+
+<main>
+    <div class="container">
+        <div class="error-page">
+            <div class="error-page__code">500</div>
+            <h1 class="error-page__title">مشکلی پیش اومد!</h1>
+            <p class="error-page__subtitle">
+                متأسفیم، در پردازش درخواست شما خطایی رخ داد. این مشکل از سمت سرور بوده،
+                نه از سمت شما — لطفاً چند لحظه دیگر دوباره تلاش کنید.
+            </p>
+            <div class="error-page__actions">
+                <a href="/" class="btn btn-primary">بازگشت به صفحه اصلی</a>
+                <button type="button" class="btn btn-light" onclick="location.reload()">تلاش مجدد</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('./includes/footer.ejs') %>
+<%- include('./includes/end.ejs') %>

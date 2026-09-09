@@ -1,0 +1,63 @@
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="/" class="logo">
+            <span class="logo-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 8h12l-1 12H7L6 8Z"></path>
+                    <path d="M9 8V6a3 3 0 0 1 6 0v2"></path>
+                </svg>
+            </span>
+            <span class="logo-text">فروشگاه من</span>
+        </a>
+
+<nav class="main-nav" id="primaryNav">
+    <ul>
+        <li><a href="/">خانه</a></li>
+        <li><a href="/products">محصولات</a></li>
+        <% if(isAuthenticated){ %>
+          <li><a href="/orders">سفارشات</a></li>
+          <li><a href="/admin/add-product">افزودن محصول</a></li>
+          <li><a href="/admin/products">محصولات ادمین</a></li>
+        <% } %>
+    </ul>
+
+    <ul class="main-nav-auth">
+        <% if(!isAuthenticated){ %>
+          <li><a href="/login" class="nav-auth-link">ورود</a></li>
+          <li><a href="/sign-up" class="nav-auth-link">ثبت‌نام</a></li>
+        <% } else { %>
+          <li>
+            <form method="post" action="/logout" class="logout-form">
+              <button class="logout" type="submit">خروج</button>
+              <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+            </form>
+          </li>
+        <% } %>
+    </ul>
+</nav>
+
+
+        <div class="header-actions">
+            <label class="theme-switch" title="تغییر پوسته روشن/تاریک">
+                <input type="checkbox" id="themeToggle" aria-label="تغییر پوسته روشن یا تاریک" />
+                <span class="theme-switch-track">
+                    <svg class="icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path></svg>
+                    <svg class="icon icon-moon" viewBox="0 0 24 24" fill="currentColor"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"></path></svg>
+                    <span class="theme-switch-thumb"></span>
+                </span>
+            </label>
+
+            <% if(isAuthenticated){ %>
+              <a href="/cart" class="cart-link">
+                  <span class="cart-icon">🛒</span>
+                  <span class="cart-label">سبد خرید</span>
+                  <span id="cart-count" class="cart-count"></span>
+              </a>
+            <% } %>
+
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="باز و بسته کردن منو" aria-expanded="false" aria-controls="primaryNav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</header>

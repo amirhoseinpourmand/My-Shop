@@ -1,0 +1,45 @@
+<%- include('../includes/head.ejs') %>
+<%- include('../includes/heading.ejs') %>
+
+<main>
+  <% if(products.length > 0){ %>
+  <div class="container">
+    <ul class="cart__item-list">
+      <% if(products.length >= 0){ %>
+        <% products.forEach(p => { %>
+          <li class="cart__item">
+            <div>
+                <img src="<%= p.productID.image %>" class="img-thumbnail" alt="" />
+            </div>
+            <h1><%= p.productID.title %></h1>
+            <h2><%= p.quantity %></h2>
+          </li>
+        <% }) %>
+      <% } else { %>
+        <h1>سفارشی یافت نشد!</h1>
+      <% } %>
+    </ul>
+    <div class="centered">
+        <h3>
+            مبلغ نهایی: <%= totalPrice %>
+        </h3>
+    </div>
+    <div class="centered">
+        <a class="btn btn-info" href="/paymentRequest">پرداخت</a>
+    </div>
+  </div>
+  <% } else { %>
+    <div class="container">
+      <div class="empty-state">
+          <span class="empty-state__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1"></circle><circle cx="17" cy="20" r="1"></circle><path d="M2 3h2l2.4 12.4a2 2 0 0 0 2 1.6h7.2a2 2 0 0 0 2-1.6L21 7H6"></path></svg>
+          </span>
+          <h1 class="empty-state__title">سبد خرید خالی است</h1>
+          <p class="empty-state__subtitle">برای ادامه، ابتدا محصولی به سبد خرید اضافه کنید.</p>
+          <a href="/products" class="btn btn-primary">مشاهده محصولات</a>
+      </div>
+    </div>
+  <% } %>
+</main>
+<%- include('../includes/footer.ejs') %>
+<%- include('../includes/end.ejs') %>
