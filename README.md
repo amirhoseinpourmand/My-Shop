@@ -251,36 +251,35 @@ The invoice contains information about the purchased products and their quantiti
 
 ---
 
-## Setup and Installation
+## Installation
 
 ### Prerequisites
 
-- Node.js
-- MongoDB (local or cloud instance)
+Before running the project, make sure you have the following installed:
 
-### Installation Steps
+- [Node.js](https://nodejs.org/)
+- [MongoDB](https://www.mongodb.com/)
 
-1. Clone the repository:
+### Clone the Repository
 
 ```bash
 git clone https://github.com/amirhoseinpourmand/my-shop.git
-```
-
-2. Navigate to the project directory:
-
-```bash
 cd my-shop
 ```
 
-3. Install dependencies:
+### Install Dependencies
+
+Install the project dependencies using npm:
 
 ```bash
 npm install
 ```
 
-4. Configure environment variables:
+---
 
-Create a `.env` file in the project root and configure your MongoDB connection:
+## Configuration
+
+Create a `.env` file in the root directory of the project:
 
 ```env
 HOST=localhost
@@ -289,23 +288,37 @@ DATABASE_NAME=Shop
 DATABASE_HOST=127.0.0.1
 ```
 
-Add your ZarinPal merchant ID if you want to use the payment functionality.
+If you want to use the ZarinPal payment functionality, add your ZarinPal merchant ID to the `.env` file.
 
-> Make sure not to upload your `.env` file or any private credentials to GitHub.
+> **Note:** Never commit your `.env` file or any sensitive credentials to the repository.
 
-5. Run the application:
+Make sure `.env` is included in your `.gitignore` file:
+
+```gitignore
+.env
+```
+
+---
+
+## Running the Application
+
+### Production
+
+Start the application with:
 
 ```bash
 node app.js
 ```
 
-For development with Nodemon:
+### Development
+
+For development, you can use Nodemon:
 
 ```bash
 npx nodemon app.js
 ```
 
-6. Open your browser and visit:
+The application will be available at:
 
 ```text
 http://localhost:3001
