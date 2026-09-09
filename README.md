@@ -1,6 +1,4 @@
-<p align="center">
-  <img src="./.github/header.png" alt="Project Header">
-</p>
+![](/header.png)
 
 # My Shop
 
@@ -14,7 +12,7 @@ The application provides a complete shopping experience including user authentic
 
 ### Home Page
 
-![Home Page](screenshots/main-page.png)
+![Home Page](screenshots/main.png)
 
 ### Products List
 
