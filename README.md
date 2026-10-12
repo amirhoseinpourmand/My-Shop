@@ -6,7 +6,6 @@ My Shop is a full-stack e-commerce web application built with **Node.js**, **Exp
 
 The application provides a complete shopping experience including user authentication, product management, shopping cart, checkout, order management, password recovery, online payment, and PDF invoice generation.
 
----
 
 ## Project Screenshots
 
@@ -42,7 +41,6 @@ The application provides a complete shopping experience including user authentic
 
 ![Dark Theme](screenshots/dark-theme.png)
 
----
 
 ## Features
 
@@ -69,7 +67,6 @@ The application provides a complete shopping experience including user authentic
 * Custom 500 error page
 * Light and dark theme
 
----
 
 ## Project Structure
 
@@ -82,7 +79,6 @@ The application follows the **MVC (Model–View–Controller)** pattern to keep 
 * **Middleware**: Handle authentication and request processing
 * **Utils**: Provide reusable utility functions
 
----
 
 ## Technologies Used
 
@@ -104,7 +100,6 @@ The application follows the **MVC (Model–View–Controller)** pattern to keep 
 * PDFKit
 * ZarinPal Checkout
 
----
 
 ## Server-Side Rendering with EJS
 
@@ -122,7 +117,6 @@ This approach is known as **server-side rendering**.
 
 More information: [EJS](https://ejs.co)
 
----
 
 ## Authentication
 
@@ -139,7 +133,6 @@ Passwords are securely hashed using **bcryptjs** before being stored in the data
 
 The application also uses **CSRF protection** and **express-validator** for request validation.
 
----
 
 ## Database
 
@@ -176,7 +169,6 @@ The order schema includes:
 * user information
 * userID
 
----
 
 ## Shopping Cart
 
@@ -192,7 +184,6 @@ The shopping process includes:
 * Viewing the cart
 * Proceeding to checkout
 
----
 
 ## Payment
 
@@ -206,7 +197,6 @@ The payment process includes:
 * Checking the payment status
 * Creating the order after successful payment
 
----
 
 ## PDF Invoice
 
@@ -214,7 +204,6 @@ After creating an order, users can generate a PDF invoice using **PDFKit**.
 
 The invoice contains information about the purchased products and their quantities.
 
----
 
 ## Routes Overview
 
@@ -249,7 +238,6 @@ The invoice contains information about the purchased products and their quantiti
 * `/admin/edit-product` – Update a product
 * `/admin/product/:productID` – Delete a product
 
----
 
 ## Installation
 
@@ -275,7 +263,6 @@ Install the project dependencies using npm:
 npm install
 ```
 
----
 
 ## Configuration
 
@@ -298,7 +285,6 @@ Make sure `.env` is included in your `.gitignore` file:
 .env
 ```
 
----
 
 ## Running the Application
 
@@ -324,13 +310,11 @@ The application will be available at:
 http://localhost:3001
 ```
 
----
 
 ## License
 
 This project is licensed under the **ISC License**.
 
----
 
 ## Author
 
