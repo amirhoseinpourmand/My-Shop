@@ -6,8 +6,7 @@ My Shop is a full-stack e-commerce web application built with **Node.js**, **Exp
 
 The application provides a complete shopping experience including user authentication, product management, shopping cart, checkout, order management, password recovery, online payment, and PDF invoice generation.
 
-
-## Project Screenshots
+&nbsp;
 
 ### Home Page
 
@@ -41,6 +40,7 @@ The application provides a complete shopping experience including user authentic
 
 ![Dark Theme](screenshots/dark-theme.png)
 
+&nbsp;
 
 ## Features
 
